@@ -19,7 +19,7 @@ const envKeys = Object.keys(env).reduce((prev, next) => {
 const mode = process.env.NODE_ENV || 'development';
 const devMode = mode === 'development';
 const target = devMode ? 'web' : 'browserslist';
-const devtool = devMode ? 'source-map' : undefined;
+const devtool = devMode ? 'inline-source-map' : undefined;
 
 /* Config */
 module.exports = {
@@ -38,7 +38,7 @@ module.exports = {
     children: false,
     modulesSpace: 0,
   },
-  entry: ["@babel/polyfill", path.resolve(__dirname, 'src', 'index.js')],
+  entry: ["@babel/polyfill", path.resolve(__dirname, 'src', 'index.ts')],
   output: {
     path: path.resolve(__dirname, 'dist'),
     clean: true,
@@ -53,13 +53,21 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
     }),
-    new ESLintPlugin({ fix: true }),
+    new ESLintPlugin({ 
+      fix: true,
+      files: 'src/**/*.ts', 
+    }),
     // new CopyPlugin({
     //   patterns: [{ from: 'static', to: './' }],
     // }),
   ],
   module: {
     rules: [
+      {
+        test: /\.(js|ts)$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
       {
         test: /\.html$/i,
         loader: 'html-loader',
@@ -131,10 +139,13 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env'],
+            presets: ['@babel/preset-env', "@babel/preset-typescript"],
           },
         },
       },
     ],
+  },
+  resolve: {
+    extensions: ['.js', '.ts'],
   },
 };
