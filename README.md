@@ -1,4 +1,19 @@
-# WEBPACK
+# To-Do-List
+
+The main purpose of the project is to write the project on TypeScript and use bundler Webpack. The project itself is a list plan with points, which you can write yourself, tag or close them.
+
+What is used:
+
+- Programming languages: HTML, CSS, TypeScript;
+- Bundler: Webpack;
+- Preprocessor: SCSS;
+- Libraries: Babel, ESLint, Husky;
+
+To clone repository
+
+```shell
+git clone https://github.com/User-960/To-Do-List.git
+```
 
 To install packages, use the command
 
