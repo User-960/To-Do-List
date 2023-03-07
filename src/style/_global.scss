@@ -3,6 +3,12 @@ body {
   height: 100%;
 }
 
+body {
+  margin: 0;
+  min-width: 250px;
+  font-family: 'Montserrat';
+}
+
 .wrapper {
   display: flex;
   flex-direction: column;
