@@ -20,12 +20,9 @@
     "overrides": [
     ],
     "rules": {
-      "semi": ["off", "always"],
-      "quotes": ["off", "double"],
       "no-console": "off", // rule disallows calls or assignments to methods of the console object
       "no-debugger": "error", // disallow the use of debugger
-      "max-len": ["error", { "code": 110 }], // enforce a maximum line length
-      "indent": ["off", "2"], // enforces a consistent indentation style
+      "max-len": ["error", { "code": 120 }], // enforce a maximum line length
       "no-useless-concat": "off", // rule aims to flag the concatenation of 2 literals when they could be combined into a single literal
       "class-methods-use-this": ["error", { "exceptMethods": ["render"] }], // rule is aimed to flag class methods that do not use thiss
       "space-infix-ops": ["off", { "int32Hint": false }],
@@ -37,7 +34,14 @@
       "global-require": 0,
       "eslint linebreak-style": [0, "error", "windows"],
 
+      "semi": ["off", "always"],
+      "quotes": ["off", "double"],
+      "indent": ["off", "2"],
+      "no-unused-vars": "off",
+
       "@typescript-eslint/semi": ["error", "always"], // semicolon check
-      "@typescript-eslint/quotes": ["error", "double"] // check for quotes
+      "@typescript-eslint/quotes": ["error", "double"], // check for quotes
+      "@typescript-eslint/indent": ["off", "2"], // enforces a consistent indentation style
+      "@typescript-eslint/no-unused-vars": "error" // disallow unused variables
     }
 }
